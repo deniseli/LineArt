@@ -1,5 +1,5 @@
 # Make line drawings
-# all lines stretch across canvas
+
 import numpy as np
 import matplotlib.pyplot as plt
 import time
