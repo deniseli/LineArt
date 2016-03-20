@@ -11,8 +11,8 @@ from scipy import ndimage as ndi
 from skimage import color
 from skimage import feature
 
-N = 7
-sparse = "D"
+N = 3
+sparse = "S"
 
 class Line:
     def __init__(self, p, m):
@@ -95,11 +95,11 @@ def makeoverlay(old, new):
 
 if __name__ == "__main__":
     for S in range(1,6):
-        im = color.rgb2gray(misc.imread('face.png'))
+        im = color.rgb2gray(misc.imread('swirls.png'))
         edges = feature.canny(im, sigma=S)
         start = time.time()
         out = filter(edges, sparse)
         print "time elapsed: " + str(time.time() - start)
         plt.imshow(out, cmap=plt.cm.gray)
         plt.show()
-        misc.imsave("face_N" + str(N) + "S" + str(S) + sparse + ".png", out)
+        misc.imsave("swirls_N" + str(N) + "S" + str(S) + sparse + ".png", out)
